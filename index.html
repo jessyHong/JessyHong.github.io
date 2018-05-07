@@ -162,11 +162,11 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                4
+                5
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                2
+                3
                 <span>标签</span>
             </div>
         </div>
@@ -197,6 +197,137 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 
             
             <section id="main">
+    <article id="post-draw-chart" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/05/07/draw-chart/">图表绘制的选择Echarts, D3, C3, SVG</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/05/07/draw-chart/">
+            <time datetime="2018-05-07T11:38:51.000Z" itemprop="datePublished">2018-05-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/图表/">图表</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/图表/">图表</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="那些年画过的图表"><a href="#那些年画过的图表" class="headerlink" title="那些年画过的图表"></a>那些年画过的图表</h1><h3 id="1-echarts-http-echarts-baidu-com"><a href="#1-echarts-http-echarts-baidu-com" class="headerlink" title="1. echarts  http://echarts.baidu.com/"></a>1. echarts  <a href="http://echarts.baidu.com/" target="_blank" rel="noopener">http://echarts.baidu.com/</a></h3><p><img src="/img/draw-chart-1.png" alt="image"><br>折线图和Element 滑块组成的图标，可以互相控制。</p>
+<h3 id="2-c3-http-c3js-org"><a href="#2-c3-http-c3js-org" class="headerlink" title="2. c3  http://c3js.org/"></a>2. c3  <a href="http://c3js.org/" target="_blank" rel="noopener">http://c3js.org/</a></h3><p><img src="/img/draw-chart-2.png" alt="image"><br>多条数据的折线图，不同段填充不同的背景颜色，灰、蓝、白。以及在一点位置绘制竖向分隔。</p>
+<h3 id="3-svg"><a href="#3-svg" class="headerlink" title="3. svg"></a>3. svg</h3><p><img src="/img/draw-chart-3.png" alt="image"></p>
+<h3 id="4-D3-js-https-d3js-org"><a href="#4-D3-js-https-d3js-org" class="headerlink" title="4. D3.js https://d3js.org/"></a>4. D3.js <a href="https://d3js.org/" target="_blank" rel="noopener">https://d3js.org/</a></h3><p>相当于是svg的jQuery，它的API 灵活且可定制性高，这是它的一大优点，缺点是上手难度偏大，学习成本偏高。</p>
+<h3 id="5-说一说以上四者的区别："><a href="#5-说一说以上四者的区别：" class="headerlink" title="5. 说一说以上四者的区别："></a>5. 说一说以上四者的区别：</h3><ul>
+<li><p><code>Echarts</code> 使用很方便，只是传入参数就可以绘制。<br>但是一旦它提供的图表不符合你的需要，就分分钟炸了。Echarts是使用canvs绘制的，生成的是一张图片。想改相当的麻烦。  </p>
+</li>
+<li><p><code>C3.js</code> 是对D3.js进行了封装，与echarts类型，只需要往generate函数中传入数据对象就可以轻松的绘制出图表，方便开发者使用。同时它绘制的图表是真实的操作dom的，因此对于后期对图表的修改也是相对简单的。  </p>
+</li>
+<li><p><code>svg</code> 好处就是不用引第三方库了，HTML5自带的。绘制就需要一个个图形绘制了，可以随心所欲。绘制简单的图表比较适合。  </p>
+</li>
+<li><p><code>D3.js</code> 定制性高，使用SVG进行绘制。与SVG类似，同样需要自己写出图形拼成图表。API很多，图形丰富。适合复杂，自定义要求高的图表。<br>它不像echarts/c3那样传入参数就可以绘制，上手难度偏大。</p>
+</li>
+</ul>
+<h3 id="6-leaflet-https-leafletjs-com"><a href="#6-leaflet-https-leafletjs-com" class="headerlink" title="6. leaflet https://leafletjs.com/"></a>6. leaflet <a href="https://leafletjs.com/" target="_blank" rel="noopener">https://leafletjs.com/</a></h3><p>是领先的开源JavaScript库，为移动设备设计的互动地图<br><img src="/img/draw-chart-4.png" alt="image"></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-js-scope-chain" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -805,10 +936,29 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/05/07/draw-chart/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/img/draw-chart-1.png)" alt="图表绘制的选择Echarts, D3, C3, SVG" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/图表/">图表</a></p>
+                            <p class="item-title"><a href="/2018/05/07/draw-chart/" class="title">图表绘制的选择Echarts, D3, C3, SVG</a></p>
+                            <p class="item-date"><time datetime="2018-05-07T11:38:51.000Z" itemprop="datePublished">2018-05-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/04/28/js-scope-chain/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/img/js-scope-chain-1.png)" alt="JavaScript作用域链" class="thumbnail-image"></span>
     
 </a>
 
@@ -887,7 +1037,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图表/">图表</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -896,7 +1046,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -905,7 +1055,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图表/">图表</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
