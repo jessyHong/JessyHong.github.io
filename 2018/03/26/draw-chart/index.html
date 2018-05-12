@@ -3,20 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>JavaScript的深拷贝和浅拷贝 | Jessy Hong</title>
+    <title>图表绘制的选择Echarts, D3, C3, SVG | Jessy Hong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. JavaScript的变量类型 基本类型：&amp;emsp;5种基本数据类型Undefined、Null、Boolean、Number 和 String，变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。  引用类型：存放在堆内存中的对象，变量保存的是一个指针，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈中获得该对象的地址指针，然后再从堆内存中取得所需">
-<meta name="keywords" content="JavaScript">
+    <meta name="description" content="那些年画过的图表1. echarts  http://echarts.baidu.com/折线图和Element 滑块组成的图标，可以互相控制。 2. c3  http://c3js.org/多条数据的折线图，不同段填充不同的背景颜色，灰、蓝、白。以及在一点位置绘制竖向分隔。 3. svg 4. D3.js https://d3js.org/相当于是svg的jQuery，它的API 灵活且可定制性">
+<meta name="keywords" content="图表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的深拷贝和浅拷贝">
-<meta property="og:url" content="http://jessyhong.top/2018/03/22/js-object-copy/index.html">
+<meta property="og:title" content="图表绘制的选择Echarts, D3, C3, SVG">
+<meta property="og:url" content="http://jessyhong.top/2018/03/26/draw-chart/index.html">
 <meta property="og:site_name" content="Jessy Hong">
-<meta property="og:description" content="1. JavaScript的变量类型 基本类型：&amp;emsp;5种基本数据类型Undefined、Null、Boolean、Number 和 String，变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。  引用类型：存放在堆内存中的对象，变量保存的是一个指针，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈中获得该对象的地址指针，然后再从堆内存中取得所需">
+<meta property="og:description" content="那些年画过的图表1. echarts  http://echarts.baidu.com/折线图和Element 滑块组成的图标，可以互相控制。 2. c3  http://c3js.org/多条数据的折线图，不同段填充不同的背景颜色，灰、蓝、白。以及在一点位置绘制竖向分隔。 3. svg 4. D3.js https://d3js.org/相当于是svg的jQuery，它的API 灵活且可定制性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-12T06:32:47.556Z">
+<meta property="og:image" content="http://jessyhong.top/img/draw-chart-1.png">
+<meta property="og:updated_time" content="2018-05-12T06:47:46.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript的深拷贝和浅拷贝">
-<meta name="twitter:description" content="1. JavaScript的变量类型 基本类型：&amp;emsp;5种基本数据类型Undefined、Null、Boolean、Number 和 String，变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。  引用类型：存放在堆内存中的对象，变量保存的是一个指针，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈中获得该对象的地址指针，然后再从堆内存中取得所需">
+<meta name="twitter:title" content="图表绘制的选择Echarts, D3, C3, SVG">
+<meta name="twitter:description" content="那些年画过的图表1. echarts  http://echarts.baidu.com/折线图和Element 滑块组成的图标，可以互相控制。 2. c3  http://c3js.org/多条数据的折线图，不同段填充不同的背景颜色，灰、蓝、白。以及在一点位置绘制竖向分隔。 3. svg 4. D3.js https://d3js.org/相当于是svg的jQuery，它的API 灵活且可定制性">
+<meta name="twitter:image" content="http://jessyhong.top/img/draw-chart-1.png">
     
 
     
@@ -201,7 +203,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 </aside>
 
             
-            <section id="main"><article id="post-js-object-copy" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-draw-chart" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -209,7 +211,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                 
     
         <h1 class="article-title" itemprop="name">
-            JavaScript的深拷贝和浅拷贝
+            图表绘制的选择Echarts, D3, C3, SVG
         </h1>
     
 
@@ -218,8 +220,8 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-object-copy/">
-            <time datetime="2018-03-22T06:07:34.000Z" itemprop="datePublished">2018-03-22</time>
+        <a href="/2018/03/26/draw-chart/">
+            <time datetime="2018-03-26T11:38:51.000Z" itemprop="datePublished">2018-03-26</time>
         </a>
     </div>
 
@@ -227,13 +229,13 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        <a class="article-category-link" href="/categories/图表/">图表</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="tag-link" href="/tags/图表/">图表</a>
     </div>
 
                     </div>
@@ -244,22 +246,21 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="1-JavaScript的变量类型"><a href="#1-JavaScript的变量类型" class="headerlink" title="1. JavaScript的变量类型"></a>1. JavaScript的变量类型</h2><ul>
-<li><p>基本类型：<br>&emsp;5种基本数据类型<code>Undefined、Null、Boolean、Number</code> 和 <code>String</code>，变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
+            <h1 id="那些年画过的图表"><a href="#那些年画过的图表" class="headerlink" title="那些年画过的图表"></a>那些年画过的图表</h1><h3 id="1-echarts-http-echarts-baidu-com"><a href="#1-echarts-http-echarts-baidu-com" class="headerlink" title="1. echarts  http://echarts.baidu.com/"></a>1. echarts  <a href="http://echarts.baidu.com/" target="_blank" rel="noopener">http://echarts.baidu.com/</a></h3><p><img src="/img/draw-chart-1.png" alt="image"><br>折线图和Element 滑块组成的图标，可以互相控制。</p>
+<h3 id="2-c3-http-c3js-org"><a href="#2-c3-http-c3js-org" class="headerlink" title="2. c3  http://c3js.org/"></a>2. c3  <a href="http://c3js.org/" target="_blank" rel="noopener">http://c3js.org/</a></h3><p><img src="/img/draw-chart-2.png" alt="image"><br>多条数据的折线图，不同段填充不同的背景颜色，灰、蓝、白。以及在一点位置绘制竖向分隔。</p>
+<h3 id="3-svg"><a href="#3-svg" class="headerlink" title="3. svg"></a>3. svg</h3><p><img src="/img/draw-chart-3.png" alt="image"></p>
+<h3 id="4-D3-js-https-d3js-org"><a href="#4-D3-js-https-d3js-org" class="headerlink" title="4. D3.js https://d3js.org/"></a>4. D3.js <a href="https://d3js.org/" target="_blank" rel="noopener">https://d3js.org/</a></h3><p>相当于是svg的jQuery，它的API 灵活且可定制性高，这是它的一大优点，缺点是上手难度偏大，学习成本偏高。</p>
+<h3 id="5-说一说以上四者的区别："><a href="#5-说一说以上四者的区别：" class="headerlink" title="5. 说一说以上四者的区别："></a>5. 说一说以上四者的区别：</h3><ul>
+<li><p><code>Echarts</code> 使用很方便，只是传入参数就可以绘制。<br>但是一旦它提供的图表不符合你的需要，就分分钟炸了。Echarts是使用canvs绘制的，生成的是一张图片。想改相当的麻烦。  </p>
 </li>
-<li><p>引用类型：<br>存放在堆内存中的对象，变量保存的是一个指针，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈中获得该对象的地址指针，然后再从堆内存中取得所需的数据。     </p>
+<li><p><code>C3.js</code> 是对D3.js进行了封装，与echarts类型，只需要往generate函数中传入数据对象就可以轻松的绘制出图表，方便开发者使用。同时它绘制的图表是真实的操作dom的，因此对于后期对图表的修改也是相对简单的。  </p>
+</li>
+<li><p><code>svg</code> 好处就是不用引第三方库了，HTML5自带的。绘制就需要一个个图形绘制了，可以随心所欲。绘制简单的图表比较适合。  </p>
+</li>
+<li><p><code>D3.js</code> 定制性高，使用SVG进行绘制。与SVG类似，同样需要自己写出图形拼成图表。API很多，图形丰富。适合复杂，自定义要求高的图表。<br>它不像echarts/c3那样传入参数就可以绘制，上手难度偏大。</p>
 </li>
 </ul>
-<p>&emsp;JavaScript存储对象都是存地址的，所以浅拷贝会导致 obj1 和obj2 指向同一块内存地址。改变了其中一方的内容，都是在原来的内存上做修改会导致拷贝对象和源对象都发生改变，而深拷贝是开辟一块新的内存地址，将原对象的各个属性逐个复制进去。对拷贝对象和源对象各自的操作互不影响。     </p>
-<h2 id="2-深复制和浅复制"><a href="#2-深复制和浅复制" class="headerlink" title="2. 深复制和浅复制"></a>2. 深复制和浅复制</h2><p>&emsp;深复制和浅复制只针对像 <code>Object, Array</code> 这样的复杂对象的。简单来说，浅复制是指只复制一层对象的属性，不会复制对象中的对象的属性，深复制则会递归复制了所有层级。</p>
-<h3 id="2-1-浅复制"><a href="#2-1-浅复制" class="headerlink" title="2.1 浅复制"></a>2.1 浅复制</h3><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shallowCopy(obj) &#123;</span><br><span class="line">  // typeof判断类型，数组和对象返回object</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  // 根据obj的类型判断是新建一个数组还是对象</span><br><span class="line">  var newObj = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  // 遍历obj，并且判断是obj的属性才拷贝</span><br><span class="line">  for (var key in obj) &#123;</span><br><span class="line">    if (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var newUser = this.shallowCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //true</span><br><span class="line">//浅复制，只复制一层对象的属性，第二层对象的属性lastName/firstName不复制</span><br></pre></td></tr></table></figure>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shallowCopy(obj) &#123;</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  //Object.assign() 方法可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。</span><br><span class="line">  if (obj instanceof Array) &#123;</span><br><span class="line">    return Object.assign([], obj);</span><br><span class="line">  &#125;</span><br><span class="line">  return Object.assign(&#123;&#125;, obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.shallowCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //true</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-深复制"><a href="#2-2-深复制" class="headerlink" title="2.2 深复制"></a>2.2 深复制</h3><h4 id="方式一：-递归方式"><a href="#方式一：-递归方式" class="headerlink" title="方式一： 递归方式"></a>方式一： 递归方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">deepCopy(obj) &#123;</span><br><span class="line">  // 方式一 递归方式</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  var newObj = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  for (var key in obj) &#123;</span><br><span class="line">    if (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = typeof obj[key] === &quot;object&quot; ? this.deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.deepCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //false</span><br></pre></td></tr></table></figure>
-<h4 id="方式二：-JSON"><a href="#方式二：-JSON" class="headerlink" title="方式二： JSON"></a>方式二： JSON</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deepCopy(obj) &#123;</span><br><span class="line">  //方式二 JSON</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  var str = JSON.stringify(obj);</span><br><span class="line">  return JSON.parse(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.deepCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //false</span><br></pre></td></tr></table></figure>
+<h3 id="6-leaflet-https-leafletjs-com"><a href="#6-leaflet-https-leafletjs-com" class="headerlink" title="6. leaflet https://leafletjs.com/"></a>6. leaflet <a href="https://leafletjs.com/" target="_blank" rel="noopener">https://leafletjs.com/</a></h3><p>是领先的开源JavaScript库，为移动设备设计的互动地图<br><img src="/img/draw-chart-4.png" alt="image"></p>
 <hr>
 <p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
@@ -334,19 +335,10 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
         
 <nav id="article-nav">
     
-        <a href="/2018/03/22/js-scope-chain/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    JavaScript作用域链
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/03/18/set-up-blog/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/03/26/vue-component-communication/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">用Hexo + Github 搭建属于自己的博客</div>
+            <div class="article-nav-title">vue1和vue2组件通信</div>
         </a>
     
 </nav>
