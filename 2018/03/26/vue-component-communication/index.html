@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>vue1和vue2组件通信 | Jessy Hong</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. 父组件向子组件通信props属性（vue1.x和vue2.x ）//父组件12345678910111213&amp;lt;template&amp;gt;  &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;    &amp;lt;img class=&amp;quot;logo&amp;quot; src=&amp;quot;./assets/logo.png&amp;quot;&amp;gt;    &amp;lt;hello from-fath">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue1和vue2组件通信">
+<meta property="og:url" content="http://jessyhong.top/2018/03/26/vue-component-communication/index.html">
+<meta property="og:site_name" content="Jessy Hong">
+<meta property="og:description" content="1. 父组件向子组件通信props属性（vue1.x和vue2.x ）//父组件12345678910111213&amp;lt;template&amp;gt;  &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;    &amp;lt;img class=&amp;quot;logo&amp;quot; src=&amp;quot;./assets/logo.png&amp;quot;&amp;gt;    &amp;lt;hello from-fath">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-12T06:28:23.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue1和vue2组件通信">
+<meta name="twitter:description" content="1. 父组件向子组件通信props属性（vue1.x和vue2.x ）//父组件12345678910111213&amp;lt;template&amp;gt;  &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;    &amp;lt;img class=&amp;quot;logo&amp;quot; src=&amp;quot;./assets/logo.png&amp;quot;&amp;gt;    &amp;lt;hello from-fath">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/logo.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102331700-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jessy Hong</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="st-default-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <script type="text/javascript">
+(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+_st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
+</script>
+<style>
+    .st-ui-injected-overlay-container,
+    .st-ui-injected-overlay-container *:not(select) {
+        font-family: inherit !important;
+    }
+    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
+        color:  !important;
+    }
+    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
+        border-bottom: 2px solid ;
+    }
+    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
+        color: ;
+    }
+    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
+        border-color: ;
+    }
+</style>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="st-default-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Jessy Hong</h2>
+            <h3 id="title">全栈开发 - 程序猿</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>珠海, 广东</span>
+            <a id="follow" target="_blank" href="https://www.linkedin.com/in/%E8%B4%A4%E5%90%9B-%E6%B4%AA-944473140/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                9
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/jessyHong" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.weibo.com/hongxianjun" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-vue-component-communication" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            vue1和vue2组件通信
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/03/26/vue-component-communication/">
+            <time datetime="2018-03-26T06:04:46.000Z" itemprop="datePublished">2018-03-26</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Vue/">Vue</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Vue/">Vue</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="1-父组件向子组件通信"><a href="#1-父组件向子组件通信" class="headerlink" title="1. 父组件向子组件通信"></a>1. 父组件向子组件通信</h2><h3 id="props属性（vue1-x和vue2-x-）"><a href="#props属性（vue1-x和vue2-x-）" class="headerlink" title="props属性（vue1.x和vue2.x ）"></a>props属性（vue1.x和vue2.x ）</h3><h4 id="父组件"><a href="#父组件" class="headerlink" title="//父组件"></a>//父组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;img class=&quot;logo&quot; src=&quot;./assets/logo.png&quot;&gt;</span><br><span class="line">    &lt;hello from-father=&quot;I am from father&quot;&gt;&lt;/hello&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Hello from &apos;./components/Hello&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Hello</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="子组件"><a href="#子组件" class="headerlink" title="//子组件"></a>//子组件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123; fromFather &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&quot;fromFather&quot;],</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-子组件向父组件通信："><a href="#2-子组件向父组件通信：" class="headerlink" title="2. 子组件向父组件通信："></a>2. 子组件向父组件通信：</h2><h4 id="2-1-emit-触发事件，-on-监听事件（vue1-x和vue2-x-）"><a href="#2-1-emit-触发事件，-on-监听事件（vue1-x和vue2-x-）" class="headerlink" title="2.1 $emit()触发事件，$on()监听事件（vue1.x和vue2.x ）"></a>2.1 $emit()触发事件，$on()监听事件（vue1.x和vue2.x ）</h4><p>//父组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;hello-world @child-click=&quot;receiveData&quot;&gt;&lt;/hello-world&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import HelloWorld from &apos;./HelloWorld.vue&apos;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &apos;Home&apos;,</span><br><span class="line">    components: &#123;HelloWorld&#125;,</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      receiveData(data)&#123;</span><br><span class="line">        console.log(data); //I am from child</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="子组件-1"><a href="#子组件-1" class="headerlink" title="//子组件"></a>//子组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;onClick&quot;&gt;Click&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    onClick()&#123;</span><br><span class="line">      this.$emit(&apos;child-click&apos;, &apos;I am from child&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;在子组件向父组件通信借助了事件$emit() ，子组件在click事件里面：this.$emit(‘child-click’, ‘I am from child’);，传递了事件名称 “child-clickh” 和参数 “I am from child” 给父组件，在父组件中打印出来</p>
+<h2 id="3-dispatch-和-broadcast（vue-1-x-）"><a href="#3-dispatch-和-broadcast（vue-1-x-）" class="headerlink" title="3. $dispatch 和 $broadcast（vue 1.x ）"></a>3. $dispatch 和 $broadcast（vue 1.x ）</h2><p>向上派发事件 和 向下广播事件; vue 2.x中已经弃用</p>
+<h5 id="dispatch"><a href="#dispatch" class="headerlink" title="$dispatch:"></a>$dispatch:</h5><p>&emsp;派发事件，首先在实例上触发它，然后沿着父链向上冒泡在触发一个监听器后停止，除非它返回 true。</p>
+<h5 id="broadcast"><a href="#broadcast" class="headerlink" title="$broadcast:"></a>$broadcast:</h5><p>&emsp;广播事件，通知给当前实例的全部后代。因为后代有多个枝杈，事件将沿着各“路径”通知。每条路径上的通知在触发一个监听器后停止，除非它返回 true。<br>//父组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;img class=&quot;logo&quot; src=&quot;./assets/logo.png&quot;&gt;</span><br><span class="line">    &lt;hello&gt;&lt;/hello&gt;</span><br><span class="line">    &lt;button @click=&quot;clickBtn&quot;&gt;点击&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Hello from &apos;./components/Hello&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Hello</span><br><span class="line">  &#125;,</span><br><span class="line">  created () &#123;</span><br><span class="line">    this.$on(&quot;son-dispatch&quot;, function (data) &#123;</span><br><span class="line">      console.log(data);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    clickBtn()&#123;</span><br><span class="line">      this.$broadcast(&quot;father-broadcast&quot;,&quot;I ma from father&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//子组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;clickBtn&quot;&gt;点击&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;Hello World!&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created()&#123;</span><br><span class="line">    this.$on(&quot;father-broadcast&quot;,function (data) &#123;</span><br><span class="line">      console.log(data);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    clickBtn ()&#123;</span><br><span class="line">      //派发事件</span><br><span class="line">      this.$dispatch(&quot;son-dispatch&quot;,&quot;I am from son&quot;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4-兄弟组件通信-Event-Bus"><a href="#4-兄弟组件通信-Event-Bus" class="headerlink" title="4. 兄弟组件通信: Event Bus"></a>4. 兄弟组件通信: Event Bus</h2><p>&emsp;适用于通信不是很复杂的小型项目<br>&emsp;Event Bus是在2.x的文档中才提到的，事实上1.x一样可以使用。<br>&emsp; Bus,其实是创建一个公共的实例，然后使用$on监听，使用$emit触发来进行通信的。   </p>
+<ul>
+<li>&emsp;1. 创建公共实例文件：eg:bus.js</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">exports.bus = new Vue()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&emsp;2. 组件A,$emit触发事件  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;button @click=&quot;clickBtn&quot;&gt;Hello点击&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;bus&#125; from &apos;./../utils/bus.js&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods:&#123;</span><br><span class="line">    clickBtn ()&#123;</span><br><span class="line">      //触发事件</span><br><span class="line">      bus.$emit(&apos;click-btn&apos;,&apos;I am click button&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.组件B, $on监听事件  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;bus&#125; from &apos;./../utils/bus.js&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  created()&#123;</span><br><span class="line">    bus.$on(&quot;click-btn&quot;, function (data) &#123;</span><br><span class="line">      console.log(data) //I am click button</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;如果是大型项目，通信更为的复杂。我们可以通过官方提供的 Vuex 轻松管理各组件之间通信问题。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>适用版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>props属性</td>
+<td>父组件向子组件传递</td>
+<td>Vue1.x<br>Vue2.x</td>
+</tr>
+<tr>
+<td>$on(事件名)</td>
+<td>事件名的类型是字符串（下同），调用它可以通过this.$on()来调用</td>
+<td>Vue1.x<br>Vue2.x</td>
+</tr>
+<tr>
+<td>$emit(事件名, 参数)</td>
+<td>用于触发事件，参数是用于传递给事件的参数。这个用于触发同级事件（当前组件的）</td>
+<td>Vue1.x<br>Vue2.x</td>
+</tr>
+<tr>
+<td>$dispatch(事件名, 参数)</td>
+<td>①向上派发事件，用于向父组件传播。<br>②会首先触发当前组件的同名事件（如果有）；<br>③然后会向上冒泡，当遇到第一个符合的父组件的事件后触发并停止；<br>④当父组件的事件的返回值设为true会继续冒泡去找下一个。</td>
+<td>Vue1.x</td>
+</tr>
+<tr>
+<td>$broadcast(事件名, 参数)</td>
+<td>①向下广播事件，用于向所有子组件传播。<br>②默认情况是仅限子组件；<br>③子组件事件的返回值是true，才会继续向该子组件的孙组件派发；<br>④不会触发自身同名事件</td>
+<td>Vue1.x</td>
+</tr>
+<tr>
+<td>Event Bus</td>
+<td>Bus 实现非父子组件的通信，$on / $emit实现</td>
+<td>Vue1<br>Vue2</td>
+</tr>
+<tr>
+<td>Vuex</td>
+<td>Vuex 专为 Vue.js 应用程序开发的状态管理模式。Vuex相当于一个仓库，管理着所有组件的公共数据</td>
+<td>Vue2.x<br>Vue1.x(不建议)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/01/draw-chart/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    图表绘制的选择Echarts, D3, C3, SVG
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/03/24/vue-checkbox/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">vue checkbox使用v-model和@click遇到的坑</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/01/draw-chart/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/img/draw-chart-1.png)" alt="图表绘制的选择Echarts, D3, C3, SVG" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/图表/">图表</a></p>
+                            <p class="item-title"><a href="/2018/04/01/draw-chart/" class="title">图表绘制的选择Echarts, D3, C3, SVG</a></p>
+                            <p class="item-date"><time datetime="2018-04-01T11:38:51.000Z" itemprop="datePublished">2018-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/26/vue-component-communication/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Vue/">Vue</a></p>
+                            <p class="item-title"><a href="/2018/03/26/vue-component-communication/" class="title">vue1和vue2组件通信</a></p>
+                            <p class="item-date"><time datetime="2018-03-26T06:04:46.000Z" itemprop="datePublished">2018-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/24/vue-checkbox/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Vue/">Vue</a></p>
+                            <p class="item-title"><a href="/2018/03/24/vue-checkbox/" class="title">vue checkbox使用v-model和@click遇到的坑</a></p>
+                            <p class="item-date"><time datetime="2018-03-24T08:06:13.000Z" itemprop="datePublished">2018-03-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/24/v-model-explain-detail/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Vue/">Vue</a></p>
+                            <p class="item-title"><a href="/2018/03/24/v-model-explain-detail/" class="title">详解v-model:语法糖</a></p>
+                            <p class="item-date"><time datetime="2018-03-24T06:06:13.000Z" itemprop="datePublished">2018-03-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/22/js-closure/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/03/22/js-closure/" class="title">JavaScript闭包</a></p>
+                            <p class="item-date"><time datetime="2018-03-22T11:27:50.000Z" itemprop="datePublished">2018-03-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图表/">图表</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图表/">图表</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Jessy Hong<br>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
