@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>JavaScript闭包 | Jessy Hong</title>
+    <title>JavaScript闭包的理解和用途 | Jessy Hong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="作者： Jessy Hong">
+    <meta name="description" content="1. 什么是闭包？&amp;emsp;在了解闭包之前，应当了解一下JavaScript的作用域和作用域链的概念。详细可看《JavaScript作用域及作用域链的详解》&amp;emsp;闭包就是能够读取其他函数内部变量的函数。&amp;emsp;由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。&amp;emsp;所以，在本质上，闭包就是将函数内部和函数">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript闭包">
+<meta property="og:title" content="JavaScript闭包的理解和用途">
 <meta property="og:url" content="http://jessyhong.top/2018/03/22/js-closure/index.html">
 <meta property="og:site_name" content="Jessy Hong">
-<meta property="og:description" content="作者： Jessy Hong">
+<meta property="og:description" content="1. 什么是闭包？&amp;emsp;在了解闭包之前，应当了解一下JavaScript的作用域和作用域链的概念。详细可看《JavaScript作用域及作用域链的详解》&amp;emsp;闭包就是能够读取其他函数内部变量的函数。&amp;emsp;由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。&amp;emsp;所以，在本质上，闭包就是将函数内部和函数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-12T06:28:49.907Z">
+<meta property="og:updated_time" content="2018-05-13T09:15:39.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript闭包">
-<meta name="twitter:description" content="作者： Jessy Hong">
+<meta name="twitter:title" content="JavaScript闭包的理解和用途">
+<meta name="twitter:description" content="1. 什么是闭包？&amp;emsp;在了解闭包之前，应当了解一下JavaScript的作用域和作用域链的概念。详细可看《JavaScript作用域及作用域链的详解》&amp;emsp;闭包就是能够读取其他函数内部变量的函数。&amp;emsp;由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。&amp;emsp;所以，在本质上，闭包就是将函数内部和函数">
     
 
     
@@ -209,7 +209,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                 
     
         <h1 class="article-title" itemprop="name">
-            JavaScript闭包
+            JavaScript闭包的理解和用途
         </h1>
     
 
@@ -244,7 +244,20 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <hr>
+            <h2 id="1-什么是闭包？"><a href="#1-什么是闭包？" class="headerlink" title="1. 什么是闭包？"></a>1. 什么是闭包？</h2><p>&emsp;在了解闭包之前，应当了解一下JavaScript的作用域和作用域链的概念。详细可看<a href="http://jessyhong.top/2018/03/22/js-scope-chain/">《JavaScript作用域及作用域链的详解》</a><br>&emsp;闭包就是能够读取其他函数内部变量的函数。<br>&emsp;由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>&emsp;所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<h2 id="2-从代码理解闭包"><a href="#2-从代码理解闭包" class="headerlink" title="2.从代码理解闭包"></a>2.从代码理解闭包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global scope&quot;; //全局变量</span><br><span class="line">function checkscope()&#123;</span><br><span class="line">  var scope = &quot;local scope&quot;; //局部变量</span><br><span class="line">  function f()&#123;return scope&#125; //返回local scope</span><br><span class="line">  return f</span><br><span class="line">&#125;</span><br><span class="line">var C = checkscope() //返回local scope</span><br><span class="line">C()</span><br></pre></td></tr></table></figure>
+<p>&emsp;这是简单的闭包，函数checkscope的内部函数f被函数checkscope外的一个变量C引用。C能够读取checkscope函数内部变量的函数f。<br>这就形成了闭包的概念，<code>闭包就是能够读取其他函数内部变量的函数</code>。</p>
+<h2 id="3-闭包的用途"><a href="#3-闭包的用途" class="headerlink" title="3.闭包的用途"></a>3.闭包的用途</h2><h4 id="3-1-用闭包模拟私有方法，私有变量"><a href="#3-1-用闭包模拟私有方法，私有变量" class="headerlink" title="3.1 用闭包模拟私有方法，私有变量"></a>3.1 用闭包模拟私有方法，私有变量</h4><p>&emsp;使用闭包来定义公共函数，并令其可以访问<code>私有函数和变量</code>。</p>
+<p>以下使用例子<code>Counter</code>，实现一个计数器。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var Counter = (function() &#123;</span><br><span class="line">  var privateCounter = 0; //私有变量</span><br><span class="line">  function changeBy(val) &#123; //私有方法</span><br><span class="line">    privateCounter += val;</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    increment: function() &#123; //计数器加1</span><br><span class="line">      changeBy(1);</span><br><span class="line">    &#125;,</span><br><span class="line">    value: function() &#123;</span><br><span class="line">      return privateCounter;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">Counter.value(); //公有方法</span><br><span class="line">Counter.increment(); //公有方法</span><br><span class="line">Counter.privateCounter() //undefined</span><br></pre></td></tr></table></figure>
+<p>&emsp;Counter包含两个私有项：<code>名为privateCounter的变量和名为 changeBy的函数</code>。这两项都无法在这个匿名函数外部直接访问。必须通过匿名函数返回的两个公共函数访问。</p>
+<h4 id="3-2-立即执行函数"><a href="#3-2-立即执行函数" class="headerlink" title="3.2 立即执行函数"></a>3.2 立即执行函数</h4><h5 id="a-什么是立即执行函数？"><a href="#a-什么是立即执行函数？" class="headerlink" title="a.什么是立即执行函数？"></a>a.什么是立即执行函数？</h5><p>&emsp;立即执行函数表达式，Immediately-Invoked Function Expression，简写为<code>IIFE</code>。</p>
+<h5 id="b-立即执行函数的作用？"><a href="#b-立即执行函数的作用？" class="headerlink" title="b.立即执行函数的作用？"></a>b.立即执行函数的作用？</h5><p>&emsp;IIFE只有一个作用：<code>创建一个独立的作用域</code>。<br>&emsp;因为JavaScript中只有<code>全局作用域和函数作用域</code>。为了避免变量的污染，尽可能地少设置全局变量。所以我们就用立即执行函数表达式。</p>
+<h5 id="c-IIFE的经典场景"><a href="#c-IIFE的经典场景" class="headerlink" title="c.IIFE的经典场景"></a>c.IIFE的经典场景</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">for(var i = 0; i&lt; 5; i++)&#123;</span><br><span class="line">     (function(i)&#123;</span><br><span class="line">          arr[i] = function()&#123;</span><br><span class="line">               return i;</span><br><span class="line">          &#125; </span><br><span class="line">     &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line">arr[2]() // 2</span><br></pre></td></tr></table></figure>
+<h5 id="d-闭包与立即执行函数表达式的关系"><a href="#d-闭包与立即执行函数表达式的关系" class="headerlink" title="d.闭包与立即执行函数表达式的关系"></a>d.闭包与立即执行函数表达式的关系</h5><p>&emsp;闭包与立即执行函数它们是合作的关系，经常会看到<code>立即执行函数中会存在函数，那这个函数就是闭包了</code>。</p>
+<h4 id="3-3-封装"><a href="#3-3-封装" class="headerlink" title="3.3. 封装"></a>3.3. 封装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var person=function()</span><br><span class="line">        &#123;</span><br><span class="line">            var name=&apos;Jessy&apos;;// 定义成员函数，封装属性，外界无法直接使用</span><br><span class="line">            return&#123;</span><br><span class="line">                setName:function(data)</span><br><span class="line">                &#123;</span><br><span class="line">                    name=data;</span><br><span class="line">                &#125;,</span><br><span class="line">                getName:function()</span><br><span class="line">                &#123;</span><br><span class="line">                    return name;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;();</span><br><span class="line">person.name//undefined，不能访问</span><br><span class="line">person.getName()//只能通过get/set方法调用</span><br><span class="line">person.setName(&apos;Jessy&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-实现类和继承"><a href="#3-4-实现类和继承" class="headerlink" title="3.4. 实现类和继承"></a>3.4. 实现类和继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//Person 类</span><br><span class="line">function Person()&#123;</span><br><span class="line">var name = &quot;Jessy&quot;;</span><br><span class="line"> return&#123;</span><br><span class="line">                setName:function(data)</span><br><span class="line">                &#123;</span><br><span class="line">                    name=data;</span><br><span class="line">                &#125;,</span><br><span class="line">                getName:function()</span><br><span class="line">                &#123;</span><br><span class="line">                    return name;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line">//定义子类</span><br><span class="line">var Jessy = function()&#123;&#125;</span><br><span class="line">//集成Person类</span><br><span class="line">Jessy .prototype = new Person()</span><br><span class="line">//定义子类方法</span><br><span class="line">Jessy.prototype.eat = function()&#123;</span><br><span class="line">console.log(&quot;eat.....&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var jessy = new Jessy()</span><br><span class="line">//子类实例可以方法自身定义的eat方法和从父类中继承而来的setName/getName</span><br><span class="line">jessy.eat()</span><br><span class="line">jessy.getName()</span><br><span class="line">jessy.setName(&quot;Jessy&quot;)</span><br></pre></td></tr></table></figure>
+<hr>
 <p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
         
@@ -330,7 +343,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     
         <a href="/2018/03/22/js-scope-chain/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">JavaScript作用域链</div>
+            <div class="article-nav-title">JavaScript作用域及作用域链的详解</div>
         </a>
     
 </nav>
@@ -444,7 +457,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/03/22/js-closure/" class="title">JavaScript闭包</a></p>
+                            <p class="item-title"><a href="/2018/03/22/js-closure/" class="title">JavaScript闭包的理解和用途</a></p>
                             <p class="item-date"><time datetime="2018-03-22T11:27:50.000Z" itemprop="datePublished">2018-03-22</time></p>
                         </div>
                     </li>
