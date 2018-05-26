@@ -162,7 +162,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                13
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -831,7 +831,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/24/vue-checkbox/">vue checkbox使用v-model和@click遇到的坑</a>
+            <a class="article-title" href="/2018/03/25/vue-checkbox/">vue checkbox使用v-model和@click遇到的坑</a>
         </h1>
     
 
@@ -840,8 +840,8 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/24/vue-checkbox/">
-            <time datetime="2018-03-24T08:06:13.000Z" itemprop="datePublished">2018-03-24</time>
+        <a href="/2018/03/25/vue-checkbox/">
+            <time datetime="2018-03-25T08:06:13.000Z" itemprop="datePublished">2018-03-25</time>
         </a>
     </div>
 
@@ -874,7 +874,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 <p>&emsp;以上代码默认checkbox是未选中状态，value是false。<br>当点击Checkbox选中的时候，会进入onClick的方法中。<br>&emsp;发现不同浏览器读取的<code>this.checkboxValue</code>的值是不同的  </p>
 <p><code>Firefox / Chrome</code><br><code>打印输出： false</code><br><code>IE:</code><br><code>打印输出： true</code></p>
 <p>&emsp;也就是说在<code>Firefox/Chrome</code>浏览器下，是先执行click方法，然后再对checkboxValue进行赋值。<br>&emsp;而在<code>IE</code>下，是先对checkboxValue进行赋值，然后在执行click方法。   </p>
-<h3 id="2-原因分析"><a href="#2-原因分析" class="headerlink" title="2. 原因分析"></a>2. 原因分析</h3><p>&emsp;与v-model的语法糖有关，详情请看<a href="http://jessyHong.github.io/2018/03/24/v-model-explain-detail/" target="_blank" rel="noopener">《v-model语法糖》</a></p>
+<h3 id="2-原因分析"><a href="#2-原因分析" class="headerlink" title="2. 原因分析"></a>2. 原因分析</h3><p>&emsp;与v-model的语法糖有关，详情请看<a href="http://jessyHong.github.io/2018/03/25/v-model-explain-detail/" target="_blank" rel="noopener">《v-model语法糖》</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;sth&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;checkbox&quot; :checked=&quot;checkboxValue&quot; @change=&quot;checkboxValue= $event.target.checked&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;第一行的代码其实只是第二行的语法糖。<br>&emsp;问题是：click方法中使用了变量<code>this.checkboxValue</code>,因此如果是先触发了<code>change</code>事件，对checkboxValue进行了赋值。之后再触发<code>click</code>那么获取的结果就是正确的。<br>&emsp;有了以上想法之后：对<code>change,click</code>事件做了实验<br>实验浏览器版本：  </p>
 <p><code>IE(11.0.9600.18977)</code><br><code>Firefox(52.7.3)</code><br><code>Chrome(66.0.3359.139)</code></p>
@@ -964,7 +964,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/24/v-model-explain-detail/">详解v-model:语法糖</a>
+            <a class="article-title" href="/2018/03/25/v-model-explain-detail/">详解v-model:语法糖</a>
         </h1>
     
 
@@ -973,8 +973,8 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/24/v-model-explain-detail/">
-            <time datetime="2018-03-24T06:06:13.000Z" itemprop="datePublished">2018-03-24</time>
+        <a href="/2018/03/25/v-model-explain-detail/">
+            <time datetime="2018-03-25T06:06:13.000Z" itemprop="datePublished">2018-03-25</time>
         </a>
     </div>
 
@@ -1033,9 +1033,145 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; :checked=&quot;status&quot; @change=&quot;status = $event.target.checked&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;Vue 2.x版本中，<code>可以使用v-model实现checkbox的双向绑定。</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;sth&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>&emsp;在使用checkbox中遇到的坑,详情见<a href="http://jessyHong.github.io/2018/03/24/vue-checkbox/" target="_blank" rel="noopener">《vue checkbox使用v-model和@click遇到的坑》</a>  </p>
+<p>&emsp;在使用checkbox中遇到的坑,详情见<a href="http://jessyHong.github.io/2018/03/25/vue-checkbox/" target="_blank" rel="noopener">《vue checkbox使用v-model和@click遇到的坑》</a>  </p>
 <hr>
 <p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-css-test-ellipsis" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/03/24/css-test-ellipsis/">单行、多行文本溢出省略号</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/03/24/css-test-ellipsis/">
+            <time datetime="2018-03-24T08:32:33.000Z" itemprop="datePublished">2018-03-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CSS/">CSS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="单行文本溢出显示省略号："><a href="#单行文本溢出显示省略号：" class="headerlink" title="单行文本溢出显示省略号："></a>单行文本溢出显示省略号：</h3><p>&emsp;用text-overflow:ellipsis属性来，当然还需要加宽度width属来兼容部分浏览。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">white-space: nowrap;</span><br><span class="line">width: 100px;</span><br></pre></td></tr></table></figure>
+<h2 id="重点说一下多行文本溢出显示省略号："><a href="#重点说一下多行文本溢出显示省略号：" class="headerlink" title="重点说一下多行文本溢出显示省略号："></a><code>重点说一下</code>多行文本溢出显示省略号：</h2><h4 id="方法一：-webkit-line-clamp"><a href="#方法一：-webkit-line-clamp" class="headerlink" title="方法一： -webkit-line-clamp"></a>方法一： -webkit-line-clamp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-line-clamp: 2;</span><br><span class="line">overflow: hidden;</span><br></pre></td></tr></table></figure>
+<p>适用范围：<br>&emsp;因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端。（<code>Firefox/IE不起作用</code>）<br>注：</p>
+<ul>
+<li>-webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：</li>
+<li>display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。</li>
+<li>-webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</li>
+</ul>
+<h4 id="方法二：-after-content方法："><a href="#方法二：-after-content方法：" class="headerlink" title="方法二： after:content方法："></a>方法二： after:content方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    border: solid 1px red;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 20px;</span><br><span class="line">    max-height: 40px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &amp;:after&#123;</span><br><span class="line">      content: &quot;...&quot;;</span><br><span class="line">      position: absolute;</span><br><span class="line">      bottom: 0;</span><br><span class="line">      right: 0;</span><br><span class="line">      padding-left: 40px;</span><br><span class="line">      background: white;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ol>
+<li>当文字未超出行的情况下也会出现省略号。<br><img src="/img/css-test-ellipsis-1.png" alt="image"></li>
+</ol>
+<p>2.并且”…”可能把字符覆盖了一半。<br><img src="/img/css-test-ellipsis-2.png" alt="image"></p>
+<h4 id="方法三：-JavaScript的方式，根据像素截取字符串"><a href="#方法三：-JavaScript的方式，根据像素截取字符串" class="headerlink" title="方法三： JavaScript的方式，根据像素截取字符串"></a>方法三： JavaScript的方式，根据像素截取字符串</h4><p>&emsp;原理就是将字符串挂到dom上进行渲染，然后通过dom获取渲染后的元素宽度。就是每个字符真正的像素大小。<br>&emsp;传入参数：字符串 str, font-size,限制像素：比如2行每行200px，那么就是2 x 200 = 400。<br>这里要注意因为…也会占用一定的像素所以要自己做相应的调整。比如limitPixels设置成400 - 40 = 360px。<br>&emsp;方法的返回值就是通过计算截取后的字符串：如果字符超出了像素限制，那么就会补省略号…。否则不补。<br>&emsp;<code>代码实现如下：</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123;calcStringPixelsCount(&apos;多行文本溢出: 文字很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长&apos;, 14, 360)&#125;&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">calcStringPixelsCount (data, strFontSize, limitPixels) &#123;</span><br><span class="line">  let stringCharsCount = data.length;</span><br><span class="line">  let stringPixelsCount = 0;</span><br><span class="line">  let elementPixelsLengthRuler = document.getElementById(&apos;hidden-text&apos;);</span><br><span class="line">  let targetStr = &apos;&apos;;</span><br><span class="line">  if (!document.getElementById(&apos;hidden-text&apos;)) &#123;</span><br><span class="line">    elementPixelsLengthRuler = document.createElement(&apos;span&apos;);</span><br><span class="line">    elementPixelsLengthRuler.setAttribute(&apos;id&apos;, &apos;hidden-text&apos;);</span><br><span class="line">    elementPixelsLengthRuler.style.fontSize = strFontSize;</span><br><span class="line">    elementPixelsLengthRuler.style.visibility = &apos;hidden&apos;;</span><br><span class="line">    elementPixelsLengthRuler.style.display = &apos;inline-block&apos;;</span><br><span class="line">    elementPixelsLengthRuler.style.wordBreak = &apos;break-all&apos;;</span><br><span class="line">    document.body.appendChild(elementPixelsLengthRuler);</span><br><span class="line">  &#125;</span><br><span class="line">  for (let i = 0; i &lt; stringCharsCount; i++) &#123;</span><br><span class="line">    if (data[i] === &apos; &apos;) &#123;</span><br><span class="line">      elementPixelsLengthRuler.innerHTML = &apos;&amp;nbsp;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">      elementPixelsLengthRuler.innerHTML = data[i];</span><br><span class="line">    &#125;</span><br><span class="line">    stringPixelsCount += elementPixelsLengthRuler.offsetWidth;</span><br><span class="line">    if (stringPixelsCount &lt;= limitPixels) &#123;</span><br><span class="line">      targetStr = targetStr.concat(data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return `$&#123;targetStr&#125;...`;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>&emsp;效果如下图：<br><img src="/img/css-test-ellipsis-3.png" alt="image">   </p>
+<hr>
+<p>  作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
         
         </div>
@@ -1713,140 +1849,6 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 
 
 
-    <article id="post-js-object-copy" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/22/js-object-copy/">JavaScript的深拷贝和浅拷贝</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-object-copy/">
-            <time datetime="2018-03-22T06:07:34.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="1-JavaScript的变量类型"><a href="#1-JavaScript的变量类型" class="headerlink" title="1. JavaScript的变量类型"></a>1. JavaScript的变量类型</h2><ul>
-<li><p>基本类型：<br>&emsp;5种基本数据类型<code>Undefined、Null、Boolean、Number</code> 和 <code>String</code>，变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
-</li>
-<li><p>引用类型：<br>存放在堆内存中的对象，变量保存的是一个指针，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈中获得该对象的地址指针，然后再从堆内存中取得所需的数据。     </p>
-</li>
-</ul>
-<p>&emsp;JavaScript存储对象都是存地址的，所以浅拷贝会导致 obj1 和obj2 指向同一块内存地址。改变了其中一方的内容，都是在原来的内存上做修改会导致拷贝对象和源对象都发生改变，而深拷贝是开辟一块新的内存地址，将原对象的各个属性逐个复制进去。对拷贝对象和源对象各自的操作互不影响。     </p>
-<h2 id="2-深复制和浅复制"><a href="#2-深复制和浅复制" class="headerlink" title="2. 深复制和浅复制"></a>2. 深复制和浅复制</h2><p>&emsp;深复制和浅复制只针对像 <code>Object, Array</code> 这样的复杂对象的。简单来说，浅复制是指只复制一层对象的属性，不会复制对象中的对象的属性，深复制则会递归复制了所有层级。</p>
-<h3 id="2-1-浅复制"><a href="#2-1-浅复制" class="headerlink" title="2.1 浅复制"></a>2.1 浅复制</h3><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shallowCopy(obj) &#123;</span><br><span class="line">  // typeof判断类型，数组和对象返回object</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  // 根据obj的类型判断是新建一个数组还是对象</span><br><span class="line">  var newObj = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  // 遍历obj，并且判断是obj的属性才拷贝</span><br><span class="line">  for (var key in obj) &#123;</span><br><span class="line">    if (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var newUser = this.shallowCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //true</span><br><span class="line">//浅复制，只复制一层对象的属性，第二层对象的属性lastName/firstName不复制</span><br></pre></td></tr></table></figure>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shallowCopy(obj) &#123;</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  //Object.assign() 方法可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。</span><br><span class="line">  if (obj instanceof Array) &#123;</span><br><span class="line">    return Object.assign([], obj);</span><br><span class="line">  &#125;</span><br><span class="line">  return Object.assign(&#123;&#125;, obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.shallowCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //true</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-深复制"><a href="#2-2-深复制" class="headerlink" title="2.2 深复制"></a>2.2 深复制</h3><h4 id="方式一：-递归方式"><a href="#方式一：-递归方式" class="headerlink" title="方式一： 递归方式"></a>方式一： 递归方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">deepCopy(obj) &#123;</span><br><span class="line">  // 方式一 递归方式</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) return;</span><br><span class="line">  var newObj = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  for (var key in obj) &#123;</span><br><span class="line">    if (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] = typeof obj[key] === &quot;object&quot; ? this.deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.deepCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //false</span><br></pre></td></tr></table></figure>
-<h4 id="方式二：-JSON"><a href="#方式二：-JSON" class="headerlink" title="方式二： JSON"></a>方式二： JSON</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deepCopy(obj) &#123;</span><br><span class="line">  //方式二 JSON</span><br><span class="line">  if (typeof obj !== &quot;object&quot;) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  var str = JSON.stringify(obj);</span><br><span class="line">  return JSON.parse(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  from: &quot;zhuhai&quot;,</span><br><span class="line">  name: &#123;</span><br><span class="line">    lastName: &quot;Jessy&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var newUser = this.deepCopy(user)</span><br><span class="line">newUser.from = &quot;shenzhen&quot;</span><br><span class="line">newUser.name.lastName = &quot;HaHa&quot;</span><br><span class="line">console.log(newUser.from === user.from) //false</span><br><span class="line">console.log(newUser.name.lastName === user.name.lastName) //false</span><br></pre></td></tr></table></figure>
-<hr>
-<p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-    <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
-    <span class="a2a_divider"></span>
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
-    <a class="a2a_button_google_plus"></a>
-    <a class="a2a_button_pinterest"></a>
-    <a class="a2a_button_tumblr"></a>
-</div>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-<style>
-    .a2a_menu {
-        border-radius: 4px;
-    }
-    .a2a_menu a {
-        margin: 2px 0;
-        font-size: 14px;
-        line-height: 16px;
-        border-radius: 4px;
-        color: inherit !important;
-        font-family: 'Microsoft Yahei';
-    }
-    #a2apage_dropdown {
-        margin: 10px 0;
-    }
-    .a2a_mini_services {
-        padding: 10px;
-    }
-    a.a2a_i,
-    i.a2a_i {
-        width: 122px;
-        line-height: 16px;
-    }
-    a.a2a_i .a2a_svg,
-    a.a2a_more .a2a_svg {
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
-        vertical-align: top;
-        background-size: 16px;
-    }
-    a.a2a_i {
-        border: none !important;
-    }
-    a.a2a_menu_show_more_less {
-        margin: 0;
-        padding: 10px 0;
-        line-height: 16px;
-    }
-    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-    .a2a_mini_services{*+height:1%;}
-</style>
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
     </nav>
@@ -1867,7 +1869,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                             <a href="/2018/04/19/machine-learning-indoor-locating/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/img/machine-learning-title.jpg)" alt="机器学习实例——室内定位" class="thumbnail-image"></span>
     
 </a>
 
@@ -1886,7 +1888,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                             <a href="/2018/04/18/machine-learning-introduce/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/img/machine-learning-title.jpg)" alt="机器学习基础知识" class="thumbnail-image"></span>
     
 </a>
 
@@ -1940,7 +1942,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/03/24/vue-checkbox/" class="thumbnail">
+                            <a href="/2018/03/25/vue-checkbox/" class="thumbnail">
     
     
         <span style="background-image:url(/img/vue-logo.png)" alt="vue checkbox使用v-model和@click遇到的坑" class="thumbnail-image"></span>
@@ -1951,8 +1953,8 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Vue/">Vue</a></p>
-                            <p class="item-title"><a href="/2018/03/24/vue-checkbox/" class="title">vue checkbox使用v-model和@click遇到的坑</a></p>
-                            <p class="item-date"><time datetime="2018-03-24T08:06:13.000Z" itemprop="datePublished">2018-03-24</time></p>
+                            <p class="item-title"><a href="/2018/03/25/vue-checkbox/" class="title">vue checkbox使用v-model和@click遇到的坑</a></p>
+                            <p class="item-date"><time datetime="2018-03-25T08:06:13.000Z" itemprop="datePublished">2018-03-25</time></p>
                         </div>
                     </li>
                 
@@ -1965,7 +1967,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图表/">图表</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图表/">图表</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1974,7 +1976,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">10</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">11</span></li></ul>
         </div>
     </div>
 
@@ -1983,7 +1985,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图表/">图表</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图表/">图表</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 

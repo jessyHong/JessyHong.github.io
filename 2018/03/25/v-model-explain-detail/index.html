@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | Jessy Hong</title>
+    <title>详解v-model:语法糖 | Jessy Hong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Jessy Hong">
-<meta property="og:url" content="http://jessyhong.top/archives/index.html">
+    <meta name="description" content="v-model:语法糖&amp;emsp;vue的v-model为表单的完成提供了极大的便利，可以进行数据绑定，例如将input框的值和span值绑定，只要重新输入显示值会立即更改。下面我们来分析这一命令是如何实现的。在官方文档中解释这一名令实际仅是一个语法糖。那么首先我们来看看语法糖的概念：  语法糖：指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解v-model:语法糖">
+<meta property="og:url" content="http://jessyhong.top/2018/03/25/v-model-explain-detail/index.html">
 <meta property="og:site_name" content="Jessy Hong">
+<meta property="og:description" content="v-model:语法糖&amp;emsp;vue的v-model为表单的完成提供了极大的便利，可以进行数据绑定，例如将input框的值和span值绑定，只要重新输入显示值会立即更改。下面我们来分析这一命令是如何实现的。在官方文档中解释这一名令实际仅是一个语法糖。那么首先我们来看看语法糖的概念：  语法糖：指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://jessyhong.top/img/vue-logo.png">
+<meta property="og:updated_time" content="2018-05-26T09:00:56.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jessy Hong">
+<meta name="twitter:title" content="详解v-model:语法糖">
+<meta name="twitter:description" content="v-model:语法糖&amp;emsp;vue的v-model为表单的完成提供了极大的便利，可以进行数据绑定，例如将input框的值和span值绑定，只要重新输入显示值会立即更改。下面我们来分析这一命令是如何实现的。在官方文档中解释这一名令实际仅是一个语法糖。那么首先我们来看看语法糖的概念：  语法糖：指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖">
+<meta name="twitter:image" content="http://jessyhong.top/img/vue-logo.png">
     
 
     
@@ -196,205 +203,21 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-v-model-explain-detail" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/19/machine-learning-indoor-locating/">机器学习实例——室内定位</a>
+        <h1 class="article-title" itemprop="name">
+            详解v-model:语法糖
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/machine-learning-indoor-locating/">
-            <time datetime="2018-04-19T12:24:07.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/machine-learning-introduce/">机器学习基础知识</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/machine-learning-introduce/">
-            <time datetime="2018-04-18T11:23:40.000Z" itemprop="datePublished">2018-04-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/26/draw-chart/">图表绘制的选择Echarts, D3, C3, SVG</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/26/draw-chart/">
-            <time datetime="2018-03-26T11:38:51.000Z" itemprop="datePublished">2018-03-26</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/图表/">图表</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/图表/">图表</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/26/vue-component-communication/">vue1和vue2组件通信</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/26/vue-component-communication/">
-            <time datetime="2018-03-26T06:04:46.000Z" itemprop="datePublished">2018-03-26</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Vue/">Vue</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Vue/">Vue</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/25/vue-checkbox/">vue checkbox使用v-model和@click遇到的坑</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/25/vue-checkbox/">
-            <time datetime="2018-03-25T08:06:13.000Z" itemprop="datePublished">2018-03-25</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Vue/">Vue</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Vue/">Vue</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/25/v-model-explain-detail/">详解v-model:语法糖</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2018/03/25/v-model-explain-detail/">
@@ -403,171 +226,160 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/Vue/">Vue</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Vue/">Vue</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/24/css-test-ellipsis/">单行、多行文本溢出省略号</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="v-model-语法糖"><a href="#v-model-语法糖" class="headerlink" title="v-model:语法糖"></a><code>v-model</code>:语法糖</h2><p>&emsp;vue的<code>v-model</code>为表单的完成提供了极大的便利，可以进行数据绑定，例如将input框的值和span值绑定，只要重新输入显示值会立即更改。下面我们来分析这一命令是如何实现的。在官方文档中解释这一名令实际仅是一个语法糖。<br>那么首先我们来看看语法糖的概念：</p>
+<blockquote>
+<p>语法糖：指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖能够增加程序的可读性，从而减少程序代码出错的机会。</p>
+</blockquote>
+<h3 id="1-v-model用在input元素上时"><a href="#1-v-model用在input元素上时" class="headerlink" title="1. v-model用在input元素上时"></a>1. v-model用在<code>input</code>元素上时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model=&quot;something&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-bind:value=&quot;something&quot; v-on:input=&quot;something= $event.target.value&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;第一行的代码其实只是第二行的语法糖。然后第二行代码还能简写成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input :value=&quot;something&quot; @input=&quot;something= $event.target.value&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;要理解这行代码，首先你要知道 input 元素本身有个 oninput 事件，这是 HTML5 新增加的，类似 onchange ，每当输入框内容发生变化，就会触发 oninput ，把最新的value传递给 something。</p>
+<p>&emsp;也就是v-model=”something”则表示将value值绑定在something上，当值发生改变时触发绑定的oninput事件。oninput事件绑定的函数是将触发oninput事件的目标（该input）的value值赋值给something这个变量。</p>
+<p>&emsp;我们仔细观察语法糖和原始语法那两行代码，可以得出一个结论：<br>&emsp;在给 <input> 元素添加 v-model 属性时，将value值绑定在something变量上，当值发生改变时触发绑定的oninput事件，oninput事件绑定的函数是将触发oninput事件的目标的value值赋值给something这个变量。</p>
+<h3 id="2-v-model-用在组件上时"><a href="#2-v-model-用在组件上时" class="headerlink" title="2. v-model 用在组件上时"></a>2. v-model 用在<code>组件</code>上时</h3><p>&emsp;v-model 不仅仅能在 input上用，在组件上也能使用。<br>从v-model的实现原理，我们知道要在组件中使用时，它相当于下面的简写：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;custon-input v-bind:value=&quot;something&quot; v-on:input=&quot;something=arguments[0]&quot;&gt;&lt;/custom-input&gt;</span><br></pre></td></tr></table></figure>
+<p>所以要让组件的v-model生效，它应该：</p>
+<ul>
+<li><code>1. 接受一个value属性</code></li>
+<li><code>2. 在有新的值时触发input事件</code></li>
+</ul>
+<p>&emsp;代码如下：自定义一个不能输入负数的input框  </p>
+<ul>
+<li>custon-input组件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input :value=&quot;value&quot; @input=&quot;updateValue($event.target.value)&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;CustonInput&apos;,</span><br><span class="line">  props: [&apos;value&apos;],</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      checkboxValue: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    updateValue(value)&#123;</span><br><span class="line">      if (value &lt; 0) &#123;</span><br><span class="line">        this.$emit(&quot;input&quot;, 0) //值小于0时候，赋值为0</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        this.$emit(&quot;input&quot;, value) //触发input事件，父组件接收input事件</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>//父组件中使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;custon-input v-model=&quot;custonValue&quot;&gt;&lt;/custon-input&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import CustonInput from &apos;./CustonInput.vue&apos;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &apos;Home&apos;,</span><br><span class="line">    components: &#123;CustonInput&#125;,</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        custonValue: &apos;10&apos;, //给一个默认值</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      receiveData(data)&#123;</span><br><span class="line">        console.log(data); //I am from child</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line">      custonValue (val) &#123;</span><br><span class="line">        console.log(val)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-v-model-的缺点和解决办法"><a href="#3-v-model-的缺点和解决办法" class="headerlink" title="3. v-model 的缺点和解决办法"></a>3. v-model 的<code>缺点和解决</code>办法</h2><p>&emsp;在创建类似复选框或者单选框的常见组件时，v-model就不好用了。<br>&emsp;Vue 1.x版本中：checkbox使用v-model不起效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;sth&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;v-model 给我们提供好了 value 属性和 <code>oninput</code> 事件，但是，我们需要的不是 value 属性，而是 checked 属性，并且当你点击这个单选框的时候不会触发 oninput 事件，它只会触发 <code>onchange</code> 事件。这就尴尬了   </p>
+<p>&emsp;因为 v-model 只是用到了 input 元素上，所以这种情况好解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; :checked=&quot;status&quot; @change=&quot;status = $event.target.checked&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;Vue 2.x版本中，<code>可以使用v-model实现checkbox的双向绑定。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;sth&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;在使用checkbox中遇到的坑,详情见<a href="http://jessyHong.github.io/2018/03/25/vue-checkbox/" target="_blank" rel="noopener">《vue checkbox使用v-model和@click遇到的坑》</a>  </p>
+<hr>
+<p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/24/css-test-ellipsis/">
-            <time datetime="2018-03-24T08:32:33.000Z" itemprop="datePublished">2018-03-24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CSS/">CSS</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CSS/">CSS</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/23/css-background/">css3 background背景属性详解</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/23/css-background/">
-            <time datetime="2018-03-23T07:19:26.000Z" itemprop="datePublished">2018-03-23</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CSS/">CSS</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CSS/">CSS</a>
-    </div>
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/22/js-closure/">JavaScript闭包的理解和用途</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-closure/">
-            <time datetime="2018-03-22T11:27:50.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/22/js-scope-chain/">JavaScript作用域及作用域链的详解</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-scope-chain/">
-            <time datetime="2018-03-22T10:28:34.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 &raquo;</a>
-    </nav>
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/03/25/vue-checkbox/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    vue checkbox使用v-model和@click遇到的坑
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/03/24/css-test-ellipsis/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">单行、多行文本溢出省略号</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

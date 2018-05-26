@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: JavaScript | Jessy Hong</title>
+    <title>vue checkbox使用v-model和@click遇到的坑 | Jessy Hong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Jessy Hong">
-<meta property="og:url" content="http://jessyhong.top/tags/JavaScript/index.html">
+    <meta name="description" content="vue checkbox使用v-model和@click遇到的坑1. 问题描述： 使用v-model=&amp;quot;value&amp;quot;对checkbox进行了绑定，同时监听checkbox 的click事件，在click方法中使用了this.value取值。发现不同浏览器下，取到的this.value的值是不同的。  代码如下： 12345678910111213141516171819&amp;lt;">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue checkbox使用v-model和@click遇到的坑">
+<meta property="og:url" content="http://jessyhong.top/2018/03/25/vue-checkbox/index.html">
 <meta property="og:site_name" content="Jessy Hong">
+<meta property="og:description" content="vue checkbox使用v-model和@click遇到的坑1. 问题描述： 使用v-model=&amp;quot;value&amp;quot;对checkbox进行了绑定，同时监听checkbox 的click事件，在click方法中使用了this.value取值。发现不同浏览器下，取到的this.value的值是不同的。  代码如下： 12345678910111213141516171819&amp;lt;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://jessyhong.top/img/vue-logo.png">
+<meta property="og:updated_time" content="2018-05-26T09:01:08.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jessy Hong">
+<meta name="twitter:title" content="vue checkbox使用v-model和@click遇到的坑">
+<meta name="twitter:description" content="vue checkbox使用v-model和@click遇到的坑1. 问题描述： 使用v-model=&amp;quot;value&amp;quot;对checkbox进行了绑定，同时监听checkbox 的click事件，在click方法中使用了this.value取值。发现不同浏览器下，取到的this.value的值是不同的。  代码如下： 12345678910111213141516171819&amp;lt;">
+<meta name="twitter:image" content="http://jessyhong.top/img/vue-logo.png">
     
 
     
@@ -196,122 +203,163 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#JavaScript</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-vue-checkbox" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/22/js-closure/">JavaScript闭包的理解和用途</a>
+        <h1 class="article-title" itemprop="name">
+            vue checkbox使用v-model和@click遇到的坑
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-closure/">
-            <time datetime="2018-03-22T11:27:50.000Z" itemprop="datePublished">2018-03-22</time>
+        <a href="/2018/03/25/vue-checkbox/">
+            <time datetime="2018-03-25T08:06:13.000Z" itemprop="datePublished">2018-03-25</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        <a class="article-category-link" href="/categories/Vue/">Vue</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="tag-link" href="/tags/Vue/">Vue</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/22/js-scope-chain/">JavaScript作用域及作用域链的详解</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="vue-checkbox使用v-model和-click遇到的坑"><a href="#vue-checkbox使用v-model和-click遇到的坑" class="headerlink" title="vue checkbox使用v-model和@click遇到的坑"></a>vue checkbox使用<code>v-model</code>和<code>@click</code>遇到的坑</h2><h3 id="1-问题描述："><a href="#1-问题描述：" class="headerlink" title="1. 问题描述："></a>1. 问题描述：</h3><ul>
+<li>使用v<code>-model=&quot;value&quot;</code>对checkbox进行了绑定，同时监听checkbox 的<code>click事件</code>，在click方法中使用了this.value取值。发现不同浏览器下，取到的this.value的值是<code>不同</code>的。</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; v-model=&quot;checkboxValue&quot; @click=&quot;onClick&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      checkboxValue: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  methods:&#123;</span><br><span class="line">    onClick()&#123;</span><br><span class="line">      console.log(this.checkboxValue);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;以上代码默认checkbox是未选中状态，value是false。<br>当点击Checkbox选中的时候，会进入onClick的方法中。<br>&emsp;发现不同浏览器读取的<code>this.checkboxValue</code>的值是不同的  </p>
+<p><code>Firefox / Chrome</code><br><code>打印输出： false</code><br><code>IE:</code><br><code>打印输出： true</code></p>
+<p>&emsp;也就是说在<code>Firefox/Chrome</code>浏览器下，是先执行click方法，然后再对checkboxValue进行赋值。<br>&emsp;而在<code>IE</code>下，是先对checkboxValue进行赋值，然后在执行click方法。   </p>
+<h3 id="2-原因分析"><a href="#2-原因分析" class="headerlink" title="2. 原因分析"></a>2. 原因分析</h3><p>&emsp;与v-model的语法糖有关，详情请看<a href="http://jessyHong.github.io/2018/03/25/v-model-explain-detail/" target="_blank" rel="noopener">《v-model语法糖》</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;sth&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;checkbox&quot; :checked=&quot;checkboxValue&quot; @change=&quot;checkboxValue= $event.target.checked&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;第一行的代码其实只是第二行的语法糖。<br>&emsp;问题是：click方法中使用了变量<code>this.checkboxValue</code>,因此如果是先触发了<code>change</code>事件，对checkboxValue进行了赋值。之后再触发<code>click</code>那么获取的结果就是正确的。<br>&emsp;有了以上想法之后：对<code>change,click</code>事件做了实验<br>实验浏览器版本：  </p>
+<p><code>IE(11.0.9600.18977)</code><br><code>Firefox(52.7.3)</code><br><code>Chrome(66.0.3359.139)</code></p>
+<p>&emsp;Firefox / Chrome: <code>先执行click事件，后执行change事件</code><br>&emsp;IE: <code>先执行change事件，后执行click事件</code></p>
+<h2 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3. 解决方法"></a>3. 解决方法</h2><h4 id="方法一：直接获取checked的值"><a href="#方法一：直接获取checked的值" class="headerlink" title="方法一：直接获取checked的值"></a>方法一：直接获取checked的值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; v-model=&quot;checkboxValue&quot; @click=&quot;onClick($event)&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      checkboxValue: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    onClick(event)&#123;</span><br><span class="line">      console.log(event.target.checked)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：使用-change进行监听，等值变化了再使用"><a href="#方法二：使用-change进行监听，等值变化了再使用" class="headerlink" title="方法二：使用@change进行监听，等值变化了再使用"></a>方法二：使用@change进行监听，等值变化了再使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; v-model=&quot;checkboxValue&quot; @change=&quot;onChange&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      checkboxValue: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    onChange()&#123;</span><br><span class="line">      console.log(this.checkboxValue)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-scope-chain/">
-            <time datetime="2018-03-22T10:28:34.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/22/js-object-copy/">JavaScript的深拷贝和浅拷贝</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/js-object-copy/">
-            <time datetime="2018-03-22T06:07:34.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
 </div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/03/26/vue-component-communication/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    vue1和vue2组件通信
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/03/25/v-model-explain-detail/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">详解v-model:语法糖</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
