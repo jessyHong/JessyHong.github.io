@@ -1009,7 +1009,7 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input :value=&quot;something&quot; @input=&quot;something= $event.target.value&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;要理解这行代码，首先你要知道 input 元素本身有个 oninput 事件，这是 HTML5 新增加的，类似 onchange ，每当输入框内容发生变化，就会触发 oninput ，把最新的value传递给 something。</p>
 <p>&emsp;也就是v-model=”something”则表示将value值绑定在something上，当值发生改变时触发绑定的oninput事件。oninput事件绑定的函数是将触发oninput事件的目标（该input）的value值赋值给something这个变量。</p>
-<p>&emsp;我们仔细观察语法糖和原始语法那两行代码，可以得出一个结论：<br>&emsp;在给 <input> 元素添加 v-model 属性时，将value值绑定在something变量上，当值发生改变时触发绑定的oninput事件，oninput事件绑定的函数是将触发oninput事件的目标的value值赋值给something这个变量。</p>
+<p>&emsp;我们仔细观察语法糖和原始语法那两行代码，可以得出一个结论：<br>&emsp;在给input元素添加 v-model 属性时，将value值绑定在something变量上，当值发生改变时触发绑定的oninput事件，oninput事件绑定的函数是将触发oninput事件的目标的value值赋值给something这个变量。</p>
 <h3 id="2-v-model-用在组件上时"><a href="#2-v-model-用在组件上时" class="headerlink" title="2. v-model 用在组件上时"></a>2. v-model 用在<code>组件</code>上时</h3><p>&emsp;v-model 不仅仅能在 input上用，在组件上也能使用。<br>从v-model的实现原理，我们知道要在组件中使用时，它相当于下面的简写：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;custon-input v-bind:value=&quot;something&quot; v-on:input=&quot;something=arguments[0]&quot;&gt;&lt;/custom-input&gt;</span><br></pre></td></tr></table></figure>
 <p>所以要让组件的v-model生效，它应该：</p>
