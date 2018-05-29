@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: CSS | Jessy Hong</title>
+    <title>Less的基本用法 | Jessy Hong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Jessy Hong">
-<meta property="og:url" content="http://jessyhong.top/tags/CSS/index.html">
+    <meta name="description" content="1. 变量（Variables）12345//less@nice-blue: #5B83AD;.container &amp;#123;  color: @nice-blue;&amp;#125; 1234//生成的css.container &amp;#123;  color: #5B83AD;&amp;#125; 2. 混合（Mixins）&amp;emsp;混合可以将一个定义好的class A轻松的引入到另一个class B中，从">
+<meta name="keywords" content="Less">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Less的基本用法">
+<meta property="og:url" content="http://jessyhong.top/2018/03/24/less-basic-tutorial/index.html">
 <meta property="og:site_name" content="Jessy Hong">
+<meta property="og:description" content="1. 变量（Variables）12345//less@nice-blue: #5B83AD;.container &amp;#123;  color: @nice-blue;&amp;#125; 1234//生成的css.container &amp;#123;  color: #5B83AD;&amp;#125; 2. 混合（Mixins）&amp;emsp;混合可以将一个定义好的class A轻松的引入到另一个class B中，从">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-29T12:27:50.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jessy Hong">
+<meta name="twitter:title" content="Less的基本用法">
+<meta name="twitter:description" content="1. 变量（Variables）12345//less@nice-blue: #5B83AD;.container &amp;#123;  color: @nice-blue;&amp;#125; 1234//生成的css.container &amp;#123;  color: #5B83AD;&amp;#125; 2. 混合（Mixins）&amp;emsp;混合可以将一个定义好的class A轻松的引入到另一个class B中，从">
     
 
     
@@ -196,86 +201,174 @@ _st('install','CJWVSBcAtDQDGu87Pe-C','2.0.0');
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#CSS</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-less-basic-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/24/css-test-ellipsis/">单行、多行文本溢出省略号</a>
+        <h1 class="article-title" itemprop="name">
+            Less的基本用法
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/24/css-test-ellipsis/">
-            <time datetime="2018-03-24T08:32:33.000Z" itemprop="datePublished">2018-03-24</time>
+        <a href="/2018/03/24/less-basic-tutorial/">
+            <time datetime="2018-03-24T12:17:10.000Z" itemprop="datePublished">2018-03-24</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/CSS/">CSS</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CSS/">CSS</a>
+        <a class="tag-link" href="/tags/Less/">Less</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/23/css-background/">css3 background背景属性详解</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="1-变量（Variables）"><a href="#1-变量（Variables）" class="headerlink" title="1. 变量（Variables）"></a>1. 变量（Variables）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//less</span><br><span class="line">@nice-blue: #5B83AD;</span><br><span class="line">.container &#123;</span><br><span class="line">  color: @nice-blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//生成的css</span><br><span class="line">.container &#123;</span><br><span class="line">  color: #5B83AD;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-混合（Mixins）"><a href="#2-混合（Mixins）" class="headerlink" title="2. 混合（Mixins）"></a>2. 混合（Mixins）</h2><p>&emsp;混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承class A中的所有属性。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//less</span><br><span class="line">.bordered &#123;</span><br><span class="line">  border: solid 2px black;</span><br><span class="line">&#125;</span><br><span class="line">.container &#123;</span><br><span class="line">  color: @nice-blue;</span><br><span class="line">.bordered;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//生成的css</span><br><span class="line">.container &#123;</span><br><span class="line">  color: @nice-blue;</span><br><span class="line">  border: solid 2px black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-嵌套（Nesting"><a href="#3-嵌套（Nesting" class="headerlink" title="3. 嵌套（Nesting)"></a>3. 嵌套（Nesting)</h2><p>&emsp;在一个选择器中嵌套另一个选择器来实现继承。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//less</span><br><span class="line">.container&#123;</span><br><span class="line">    color: #5B83AD;</span><br><span class="line">    .logo&#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//生成的css</span><br><span class="line">.container&#123;</span><br><span class="line">    color:#5B83AD;</span><br><span class="line">&#125;</span><br><span class="line">.container .logo&#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="amp-符号"><a href="#amp-符号" class="headerlink" title="&amp;符号"></a>&amp;符号</h4><p>&emsp;表示当前的选择器，写串联选择器，而不是写后代选择器，就可以用到&amp;了.<br>&emsp;这点对伪类尤其有用如:hover 和 :focus.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//less</span><br><span class="line">.container&#123;</span><br><span class="line">    color:#5B83AD;</span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//生成的css</span><br><span class="line">.container&#123;</span><br><span class="line">    color:#5B83AD;</span><br><span class="line">&#125;</span><br><span class="line">.container:hover&#123;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-运算（Operations）"><a href="#4-运算（Operations）" class="headerlink" title="4. 运算（Operations）"></a>4. 运算（Operations）</h2><p>&emsp;运算提供了加，减，乘，除操作;任何数字、颜色或者变量都可以参与运算.   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//less</span><br><span class="line">@the-border: 1px;</span><br><span class="line">@base-color: #666;</span><br><span class="line">.container&#123;</span><br><span class="line">    color: @base-colo * 2;</span><br><span class="line">    solid @the-border * 2 red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//生成的css</span><br><span class="line">.container&#123;</span><br><span class="line">    color: #333;</span><br><span class="line">    border: solid 2px red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="less解析calc-问题"><a href="#less解析calc-问题" class="headerlink" title="less解析calc()问题"></a>less解析calc()问题</h4><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>&emsp;在less中 <code>calc(100% - 30px)</code> 等带单位混合运算会被less解析忽略单位，全部按照百分比计算，<br>此例中的计算被less编译成<code>calc(70%)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: calc(100% - 30px)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//less解析成</span><br><span class="line">.container&#123;</span><br><span class="line">    width: calc(70%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="原因分析："><a href="#原因分析：" class="headerlink" title="原因分析："></a>原因分析：</h5><p>&emsp;less的计算方式跟calc方法有重叠，两者在一起有冲突</p>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>&emsp;把calc()里面的表达式加上<code>~</code>用<code>”“</code>包起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width : calc(~&quot;100% - 30px&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//解析成</span><br><span class="line">.container&#123;</span><br><span class="line">    width :  calc(100% - 30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;进行数值和变量之间的运算可以这样设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@var = 50px;</span><br><span class="line">.container&#123;</span><br><span class="line">  width: calc(~&quot;100% - @&#123;var&#125;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><ul>
+<li><code>less中 “~”  符号后面双引号里面的内容会被less编译忽略，而直接输出为css代码</code>  </li>
+<li><code>less中@和{}配合可以在字符串里面使用变量，很像es6里面的模板字符串 `${}`</code>   </li>
+</ul>
+<hr>
+<p> 作者： <a href="http://jessyHong.github.io" target="_blank" rel="noopener">Jessy Hong</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/23/css-background/">
-            <time datetime="2018-03-23T07:19:26.000Z" itemprop="datePublished">2018-03-23</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CSS/">CSS</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CSS/">CSS</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
 </div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/03/25/v-model-explain-detail/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    详解v-model:语法糖
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/03/24/css-test-ellipsis/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">单行、多行文本溢出省略号</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
